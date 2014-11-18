@@ -1,0 +1,222 @@
+/*
+Odev No:1
+Ogrenci No:13253030
+Selahattin AKKAS
+*/
+
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+
+int Ucgen () ;
+int Kare();  //Fonsiyonları tanımladım.
+int Dikdortgen();
+int Paralelkenar();
+int Eskenardortgen();
+
+
+int main ()
+{
+	int Islem,y=5 ;
+	printf("1. Ucgen\n");
+	printf("2. Kare\n");
+	printf("3. Dikdortgen\n");
+	printf("4. Eskenar Dortgen\n");
+	printf("5. Paralel Kenar\n");
+	printf("0. Cikis\n");
+	printf("Seciminiz:");
+	scanf("%d",&Islem);
+	do //Do else ile programı başa döndürdüm.
+	{
+		switch (Islem) //switch case ile menü oluşturdum.
+		{
+		case 1 :
+			{
+				Ucgen(); //Fonksiyonlara yönlendirdim.
+				break ;
+			}
+		case 2 :
+			{
+				Kare();
+				break ;
+			}
+		case 3 :
+			{
+				Dikdortgen();
+				break ;
+			}
+		case 4 :
+			{
+				Eskenardortgen();
+				break ;
+			}
+		case 5 :
+			{
+				Paralelkenar();
+				break ;
+			}
+		case 0 :
+			exit(Islem);
+			break;
+		default:
+			system("cls");
+			printf("Hatali bir secim yaptiniz lutfen 1-5 arasinda bir secim yapiniz\n");
+			printf("Devam etmek icin bir tusa basin");
+			getch () ;
+			system("cls"); //Yanlış bir seçimde ekranı temizleyip başa dönmesini sağladım.
+			main();
+			break;
+		}
+	}
+	while(y>0); //while döngüsüne her zaman doğru olan bir değer girdim böylelikle fonksiyon hep başa dönüyor.
+	getch ;
+}
+
+int Ucgen ()
+{
+	system ("cls") ;
+	int i,j,k ;
+	printf("Ucgenin boyutunu giriniz :");
+	scanf("%d",&k);
+	for(i=0;i<=k;i++) //Fonksiyonun satır sayısını belirler.(Kısacası i=satır diyebiliriz.)
+	{
+		for(j=0;j<i;j++) //Fonksiyondaki sutun sayısını belirler (Burda da i=sutun diyebiliriz)
+		{
+			printf("*");
+		}
+		printf("\n");
+	}
+	printf("\n");
+	printf("Devam etmek icin bir tusa basin");
+	getch () ;
+	system("cls");
+	main();
+	return 0 ;
+}
+
+int Kare ()
+{
+	system ("cls") ;
+	int i,j,k ;
+	printf("Karenin boyutunu giriniz :");
+	scanf("%d",&k);
+	printf("\n");
+	for(i=0;i<k;i++) //Fonksiyonun satır sayısını belirler.
+	{
+		for(j=0;j<k;j++) //Fonksiyondaki sutun sayısını belirler
+		{
+			printf("*");
+		}
+		printf("\n");
+	}
+	printf("\n");
+	printf("Devam etmek icin bir tusa basin");
+	getch () ;
+	system("cls");
+	main();
+	return 0 ;
+}
+
+int Dikdortgen ()
+{
+	system ("cls") ;
+	int i,j,k,f ;
+	printf("Dikdortgenin enini giriniz :");
+	scanf("%d",&k);
+	printf("Dikdortgenin boyunu giriniz :");
+	scanf("%d",&f);
+	printf("\n");
+	for(i=0;i<f;i++)  //Fonksiyonun satır sayısını belirler.
+	{
+		for(j=0;j<k;j++) //Fonksiyondaki sutun sayısını belirler
+		{
+			printf("*");
+		}
+		printf("\n");
+	}
+	printf("\n");
+	printf("Devam etmek icin bir tusa basin");
+	getch () ;
+	system("cls");
+	main();
+	return 0 ;
+}
+
+int Eskenardortgen()
+{
+	system ("cls") ;
+	int i,j,k ;
+	BAS:
+	printf("Eskenardortgenin boyutunu giriniz :");
+	scanf("%d",&k);
+	if(k%2 == 1) //Burada eğer kullacıcı çift bir değer girerse aşağıdaki else döngüsüyle fonksiyonu başa döndürdüm.
+	{
+	for(i=1;i<k+1;i+=2) //Fonksiyonun satır sayısını belirler.
+	{
+		for(j=0;j<k-i/2;j++) //Fonksiyondaki boşluk sayısını belirler
+		{
+			printf(" ");
+		}
+		for(j=0;j<i;j++) //Fonksiyonun sutun sayısını belirler.
+		{
+			printf("*");
+		}
+		printf("\n");
+	}
+	for(i=k-2;i>0;i-=2) //Fonksiyonun satır sayısını belirler.
+	{
+		for(j=0;j<k-i/2;j++)  //Fonksiyondaki boşluk sayısını belirler
+		{
+			printf(" ");
+		}
+		for(j=0;j<i;j++)  //Fonksiyonun sutun sayısını belirler.
+		{
+			printf("*");
+		}
+		printf("\n");
+	}
+	}
+	else
+	{
+		printf("Lutfen tek bir sayi giriniz\n");
+		printf("\n");
+		printf("Devam etmek icin bir tusa basin");
+	    getch () ;
+		system("cls");
+		goto BAS; //Yukarıda bir nokta belirledim ve hatalı bir seçimde o noktaya yönlendirdim.
+	}
+	printf("\n");
+	printf("Devam etmek icin bir tusa basin");
+	getch () ;
+	system("cls");
+	main();
+	return 0 ;
+}
+
+int Paralelkenar ()
+{
+	system ("cls") ;
+	int a,i,k,j ;
+	printf("Paralelkenarin boyutunu giriniz :");  
+	scanf("%d",&a);
+	printf("\n");
+	for(i=0;i<a;i++)  //Fonksiyondaki satır sayısını belirler
+	{
+		for(j=a-i;j>0;j--)  //Fonksiyondaki boşluk sayısını belirler
+		{
+			printf(" ");
+		}
+		for(k=0;k<a;k++)  //Fonksiyondaki sutun sayısını belirler
+		{
+			printf("*");
+		}
+
+		printf("\n");
+	}
+	printf("\n");
+	printf("Devam etmek icin bir tusa basin");
+	getch () ;
+	system("cls");
+	main();
+	return 0 ;
+}
